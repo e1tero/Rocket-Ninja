@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e5443683-b52e-4cda-9180-25d1b1e427a8" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Script/UIHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/BambooSpawn.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/SpawnObject.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Script/SaveData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/UIHelper.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/TileManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/BambooSpawn.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/SpawnObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/Obstacle.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ktd5v3WAGDr0lJaUO3VbrUXbtO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e5443683-b52e-4cda-9180-25d1b1e427a8" name="Default Changelist" comment="" />
+      <created>1606523648375</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606523648375</updated>
+      <workItem from="1606523674284" duration="3404000" />
+      <workItem from="1606529892444" duration="73000" />
+      <workItem from="1606529997473" duration="10426000" />
+      <workItem from="1606558316724" duration="3122000" />
+      <workItem from="1606616214495" duration="7312000" />
+      <workItem from="1606648391505" duration="2944000" />
+      <workItem from="1606658148359" duration="873000" />
+      <workItem from="1606662656740" duration="5118000" />
+      <workItem from="1606703586292" duration="4027000" />
+      <workItem from="1606722458615" duration="1053000" />
+      <workItem from="1606752313278" duration="2354000" />
+      <workItem from="1606763414735" duration="6878000" />
+      <workItem from="1606776081371" duration="5047000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1606783140484">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1606783140484" />
+  </component>
+</project>
