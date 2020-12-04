@@ -6,6 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    [Header("Sounds")] 
+    public GameObject damageSound;
+    public GameObject heartTakeSound;
+    public GameObject bonusTakeSound;
+    public GameObject heartIncreaseSound;
+    public GameObject loseGameSound;
+    public GameObject jumpSound;
+    public GameObject turboSound;
+    
     public GameObject firstMainWaypoint;
     public GameObject lossHealthPosition;
     public GameObject secondMainWaypoint;
@@ -19,6 +28,7 @@ public class Player : MonoBehaviour
     public GameObject secondWaypoint;
     public SaveData saveData;
     public Camera cam;
+    public GameObject[] hearts;
     public int points; 
     private bool check;
     private bool click;
@@ -31,31 +41,62 @@ public class Player : MonoBehaviour
     public int immortalityScore;
     private Animator anim;
     private Color color;
+    private Rigidbody rb;
+    public bool death;
+    public float letSpeed;
 
 
     void Start()
     {
+        InvokeRepeating("AddLetSpeed", 3f,3f);
+        letSpeed = 0.09f;
+        rb = GetComponent<Rigidbody>();
+        death = false;
         anim = GetComponent<Animator>();
         immortality = false;
         immunity = false;
         speedOn = false;
         health = 3;
     }
-    
+
+    void Update()
+    {
+        switch (health)
+        {
+            case 1:
+                hearts[0].SetActive(true);
+                hearts[1].SetActive(false);
+                hearts[2].SetActive(false);
+                break;
+            case 2:
+                hearts[0].SetActive(true);
+                hearts[1].SetActive(true);
+                hearts[2].SetActive(false);
+                break;
+            case 3:
+                hearts[0].SetActive(true);
+                hearts[1].SetActive(true);
+                hearts[2].SetActive(true);
+                break;
+            case 0:
+                hearts[0].SetActive(false);
+                hearts[1].SetActive(false);
+                hearts[2].SetActive(false);
+                death = true;
+                break;
+        }
+    }
     
     void LateUpdate()
     {
-        if (speedOn)
-            speed = 11;
-        else speed = 7;
-        
-        if (!check && down == false)
+
+        if (!check && down == false && !death)
         {
             transform.position =
                     Vector3.MoveTowards(transform.position, firstMainWaypoint.transform.position, speed * Time.deltaTime);
         }
         
-        if (check && down == false)
+        if (check && down == false && !death)
         {
             transform.position =
                 Vector3.MoveTowards(transform.position, secondMainWaypoint.transform.position, speed * Time.deltaTime);
@@ -80,10 +121,16 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void AddLetSpeed()
+    {
+        letSpeed += 0.005f;
+    }
+
     public void Change()
     {
-        if (click)
+        if (click && !death)
         {
+            Instantiate(jumpSound, transform.position, Quaternion.identity);
             anim.SetTrigger("jump");
             transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * -1,transform.localScale.z);
             down = false;
@@ -97,6 +144,8 @@ public class Player : MonoBehaviour
     {
         if (collider.gameObject.tag == "Let" && !immortality && !immunity)
         {
+            Instantiate(damageSound, transform.position, Quaternion.identity);
+            StartCoroutine(HeartLostSound());
             immortalityScore = 0;
             immunity = true;
             StartCoroutine(ImmunityTime());
@@ -111,28 +160,32 @@ public class Player : MonoBehaviour
             Destroy(collider.gameObject);
             if (health < 3)
             {
+                Instantiate(heartTakeSound, transform.position, Quaternion.identity);
                 health++;
             }
         }
         
         else if (collider.gameObject.tag == "Speed")
         {
+            Instantiate(bonusTakeSound, transform.position, Quaternion.identity);
             cam.GetComponent<Animator>().SetTrigger("shake");
             Destroy(collider.gameObject);
             Instantiate(@electric, electricFirstPos.transform.position, Quaternion.identity);
             Instantiate(@electric, electricSecondPos.transform.position, Quaternion.identity);
-            speedOn = true;
-            StartCoroutine(SpeedTime());
+            points += 10;
         }
         
         else if (collider.gameObject.tag == "Bonus")
         {
+            Instantiate(bonusTakeSound, transform.position, Quaternion.identity);
             Destroy(collider.gameObject);
             immortalityScore++;
             if (immortalityScore == 3)
             {
+                Instantiate(turboSound, transform.position, Quaternion.identity);
                 cam.GetComponent<Animator>().SetTrigger("shake");
                 immortality = true;
+                letSpeed += 0.2f;
                 fireEffects.SetActive(true);
                 StartCoroutine(ImmortalityTime());
                 immortalityScore = 0; 
@@ -144,13 +197,27 @@ public class Player : MonoBehaviour
     {
         if (health <= 0 && !immortality)
         {
+            death = true;
+            Instantiate(loseGameSound, transform.position, Quaternion.identity);
+            rb.isKinematic = false;
             saveData.currentPoints = points;
             if (saveData.currentPoints > saveData.recordPoints)
                 saveData.recordPoints = saveData.currentPoints;
-            SceneManager.LoadScene("DeathScene");
+
+            StartCoroutine(DeathTime());
         }
     }
 
+    IEnumerator HeartLostSound()
+    {
+        yield return new WaitForSeconds(0.6f);
+        Instantiate(heartIncreaseSound, transform.position, Quaternion.identity);
+    }
+    IEnumerator DeathTime()
+    {
+        yield return new WaitForSeconds(2.3f);
+        SceneManager.LoadScene("DeathScene");
+    }
     IEnumerator ImmunityTime()
     {
         yield return new WaitForSecondsRealtime(3f);
@@ -160,13 +227,7 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(6f);
         immortality = false;
+        letSpeed -= 0.2f;
         fireEffects.SetActive(false);
     }
-    
-    IEnumerator SpeedTime()
-    {
-        yield return new WaitForSeconds(8f);
-        speedOn = false;
-    }
-    
 }

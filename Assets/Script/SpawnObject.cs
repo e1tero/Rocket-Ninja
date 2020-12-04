@@ -21,8 +21,8 @@ public class SpawnObject : MonoBehaviour
     public int randomHealthTime;
 
     public float spawnTimeLet;
-
-
+    
+    
     void Update()
     {
         Debug.Log(randomBonusTime);

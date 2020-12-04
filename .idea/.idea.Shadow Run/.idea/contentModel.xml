@@ -39,10 +39,12 @@
           </e>
         </e>
         <e p="Script" t="Include">
+          <e p="BackgroundChange.cs" t="Include" />
           <e p="BambooSpawn.cs" t="Include" />
           <e p="Obstacle.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="SaveData.cs" t="Include" />
+          <e p="Sound.cs" t="Include" />
           <e p="SpawnObject.cs" t="Include" />
           <e p="UIHelper.cs" t="Include" />
         </e>

@@ -10,17 +10,20 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Script/UIHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/BambooSpawn.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/BackgroundChange.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/SpawnObject.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Script/SaveData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/UIHelper.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/TileManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/BambooSpawn.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/SpawnObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/Sound.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/UIHelper.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/SaveData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/BackgroundChange.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/Obstacle.cs" />
       </list>
     </option>
@@ -56,6 +59,12 @@
       <workItem from="1606752313278" duration="2354000" />
       <workItem from="1606763414735" duration="6878000" />
       <workItem from="1606776081371" duration="5047000" />
+      <workItem from="1606804444545" duration="4309000" />
+      <workItem from="1606869417911" duration="9014000" />
+      <workItem from="1606915574752" duration="7025000" />
+      <workItem from="1606983370018" duration="3259000" />
+      <workItem from="1606997244173" duration="1890000" />
+      <workItem from="1607051118359" duration="790000" />
     </task>
     <servers />
   </component>
